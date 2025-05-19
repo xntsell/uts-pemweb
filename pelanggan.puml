@@ -1,0 +1,35 @@
+@startuml Kafe
+left to right direction
+
+actor Admin
+actor Kasir
+
+rectangle "Sistem Pengelolaan Data Pelanggan Kafe" {
+    usecase "Login" as UC1
+    usecase "Dashboard" as UC2
+    usecase "Setting" as UC3
+    usecase "Lihat data pelanggan" as UC4
+    usecase "Logout" as UC5
+    usecase "Tambah data pelanggan" as UC6
+    usecase "Edit data pelanggan" as UC7
+    usecase "Hapus data pelanggan" as UC8
+    usecase "Fitur pencarian" as UC9
+}
+
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+Admin --> UC9
+
+Kasir --> UC1
+Kasir --> UC4
+Kasir --> UC5
+Kasir --> UC9
+
+UC3 --> UC6 : <<include>>
+UC3 --> UC7 : <<include>>
+UC3 --> UC8 : <<include>>
+
+@enduml
